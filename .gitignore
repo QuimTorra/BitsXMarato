@@ -7,6 +7,9 @@
 .expo
 __generated__
 
+###package-lock.json
+package-lock.json
+
 ### ReactNative.Xcode Stack ###
 ## User settings
 xcuserdata/
