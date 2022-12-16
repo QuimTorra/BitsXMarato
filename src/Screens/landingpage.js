@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function landingpage() {
   return (
     <View>
-      <Text>landingpage</Text>
+      <Text></Text>
     </View>
   );
 }
