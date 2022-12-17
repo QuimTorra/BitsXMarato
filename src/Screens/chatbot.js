@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { Button } from "react-native-paper";
+import { Appbar } from "react-native-paper";
 
 import Message from "../Components/chatbot/message";
 import { data } from "../Components/chatbot/data";
@@ -48,7 +48,7 @@ const jaccard = (msg) => {
   return data[maxIndx];
 };
 
-export default function Chatbot() {
+export default function Chatbot({ navigation }) {
   const [msg, setMsg] = useState("");
   const [chatList, setChatList] = useState([]);
 
@@ -58,7 +58,6 @@ export default function Chatbot() {
 
   const getAnswer = (miss) => {
     let ans = jaccard(miss.toLowerCase());
-    console.log(ans.avatar);
     chats = [...chats, { msg: ans.answer, answer: true, avatar: ans.avatar }];
     setChatList([...chats].reverse());
     return;
@@ -75,37 +74,51 @@ export default function Chatbot() {
 
   return (
     <View>
-      <FlatList
-        style={{ height: "90%", bottom: "3%" }}
-        inverted={true}
-        keyExtractor={(_, index) => index.toString()}
-        data={chatList}
-        renderItem={({ item }) => (
-          <Message
-            answer={item.answer}
-            msg={item.msg}
-            sentMsg={item.sentMsg}
-            avatar={item.avatar}
-          />
-        )}
-      />
-      <View style={styles.typeMsgContainer}>
-        <TextInput
-          style={styles.typeMsgBox}
-          value={msg}
-          placeholder="Escriu Aquí ..."
-          onChangeText={(val) => setMsg(val)}
+      <Appbar.Header
+        dark={false}
+        mode={"center-aligned"}
+        style={{ backgroundColor: "#FF675D", zIndex: 1, postion: "absolute" }}
+      >
+        <Appbar.BackAction
+          onPress={() => {
+            navigation.goBack();
+          }}
         />
-        <TouchableOpacity
-          style={[
-            styles.sendBtn,
-            { backgroundColor: msg ? "#D5614A" : "grey" },
-          ]}
-          disabled={msg ? false : true}
-          onPress={() => onSendMsg()}
-        >
-          <Text style={styles.sendTxt}>send</Text>
-        </TouchableOpacity>
+        <Appbar.Content title="Soro el metge" />
+      </Appbar.Header>
+      <View>
+        <FlatList
+          style={{ height: "90%", bottom: "27%" }}
+          inverted={true}
+          keyExtractor={(_, index) => index.toString()}
+          data={chatList}
+          renderItem={({ item }) => (
+            <Message
+              answer={item.answer}
+              msg={item.msg}
+              sentMsg={item.sentMsg}
+              avatar={item.avatar}
+            />
+          )}
+        />
+        <View style={styles.typeMsgContainer}>
+          <TextInput
+            style={styles.typeMsgBox}
+            value={msg}
+            placeholder="Escriu Aquí ..."
+            onChangeText={(val) => setMsg(val)}
+          />
+          <TouchableOpacity
+            style={[
+              styles.sendBtn,
+              { backgroundColor: msg ? "#D5614A" : "grey" },
+            ]}
+            disabled={msg ? false : true}
+            onPress={() => onSendMsg()}
+          >
+            <Text style={styles.sendTxt}>send</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -115,12 +128,12 @@ const styles = StyleSheet.create({
   typeMsgContainer: {
     flexDirection: "row",
     marginHorizontal: 5,
-    bottom: 5,
+    bottom: 160,
   },
   typeMsgBox: {
     borderWidth: 0.8,
     borderColor: "grey",
-    padding: 10,
+    padding: 6,
     width: "80%",
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,

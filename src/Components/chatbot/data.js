@@ -21,9 +21,10 @@ export const data = [
     avatar: 2,
   },
   {
-    question: "símptomes simmptomes siptomes vull veure saber coneixer",
+    question:
+      "símptomes simptomes simmptomes siptomes vull veure saber coneixer",
     answer:
-      "Cal diferenciar entre símptomes de trombosis venosa o de tromboembolisme pulmonar. Quins vols saber?",
+      "Cal diferenciar entre símptomes de trombosi venosa o de tromboembolisme pulmonar. Quins vols saber?",
     avatar: 3,
   },
   {
