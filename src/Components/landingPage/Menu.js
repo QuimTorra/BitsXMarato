@@ -3,10 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 
 import * as Animatable from "react-native-animatable";
+import Noticies from "../Noticies";
 
 export default function Menu({ navigation }) {
   return (
     <View>
+      <View>
+        <Noticies />
+      </View>
       <Animatable.View animation="swing" duration={2000}>
         <Button
           icon="wechat"
@@ -44,19 +48,6 @@ export default function Menu({ navigation }) {
           }}
         >
           Combatim la trombosi
-        </Button>
-      </Animatable.View>
-      <Animatable.View animation="swing" duration={2000}>
-        <Button
-          icon="newspaper-variant-multiple"
-          mode="elevated"
-          style={styles.buttons}
-          textColor="#FFFFFF"
-          onPress={() => {
-            navigation.navigate("Noticies");
-          }}
-        >
-          Notícies
         </Button>
       </Animatable.View>
     </View>

@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import Landingpage from "./src/Screens/landingpage.js";
 import Chatbot from "./src/Screens/chatbot.js";
-import Noticies from "./src/Screens/noticies.js";
 import Info from "./src/Screens/info.js";
 import Game from "./src/Screens/game.js";
 
@@ -23,7 +22,6 @@ export default function App() {
         <Stack.Screen name="Landingpage" component={Landingpage} />
         <Stack.Screen name="Chatbot" component={Chatbot} />
         <Stack.Screen name="Info" component={Info} />
-        <Stack.Screen name="Noticies" component={Noticies} />
         <Stack.Screen name="Game" component={Game} />
       </Stack.Navigator>
     </NavigationContainer>
