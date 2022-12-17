@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Appbar } from "react-native-paper";
 
+import LottieView from "lottie-react-native";
 import Message from "../Components/chatbot/message";
 import { data } from "../Components/chatbot/data";
 
@@ -51,6 +52,7 @@ const jaccard = (msg) => {
 export default function Chatbot({ navigation }) {
   const [msg, setMsg] = useState("");
   const [chatList, setChatList] = useState([]);
+  const [animation, setAnimation] = useState(false);
 
   useEffect(() => {
     chats = [];
@@ -64,6 +66,7 @@ export default function Chatbot({ navigation }) {
   };
 
   const onSendMsg = () => {
+    if (!animation) setAnimation(true);
     chats = [...chats, { msg: msg, sentMsg: true }];
     setChatList([...chats].reverse());
     setTimeout(() => {
@@ -86,6 +89,22 @@ export default function Chatbot({ navigation }) {
         />
         <Appbar.Content title="Soro el metge" />
       </Appbar.Header>
+      {!animation && (
+        <View style={styles.animation}>
+          <LottieView
+            source={require("../../assets/animations/31548-robot-says-hello.json")}
+            autoPlay
+            style={{
+              height: 300,
+              width: 300,
+              marginTop: 100,
+              alignSelf: "center",
+              marginRight: 16,
+            }}
+          />
+          <Text style={styles.animationtxt}>No tinguis por 😊 Saluda!!</Text>
+        </View>
+      )}
       <View>
         <FlatList
           style={{ height: "90%", bottom: "27%" }}
@@ -125,6 +144,14 @@ export default function Chatbot({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  animation: {
+    position: "absolute",
+  },
+  animationtxt: {
+    alignSelf: "center",
+    marginTop: 50,
+    fontSize: 16,
+  },
   typeMsgContainer: {
     flexDirection: "row",
     marginHorizontal: 5,
