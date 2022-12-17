@@ -39,6 +39,9 @@ export default function Menu({ navigation }) {
           mode="elevated"
           textColor="#FFFFFF"
           style={styles.buttons}
+          onPress={() => {
+            navigation.navigate("Game");
+          }}
         >
           Combatim la trombosi
         </Button>
