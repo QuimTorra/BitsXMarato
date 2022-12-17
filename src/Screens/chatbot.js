@@ -42,6 +42,7 @@ const jaccard = (msg) => {
     return {
       question: "diablo papi",
       answer: "No entenc el que em demanes. Torna-ho a intentar! :)",
+      avatar: 0,
     };
   }
   return data[maxIndx];
@@ -56,8 +57,9 @@ export default function Chatbot() {
   }, []);
 
   const getAnswer = (miss) => {
-    let ans = jaccard(miss.toLowerCase()).answer;
-    chats = [...chats, { msg: ans, answer: true }];
+    let ans = jaccard(miss.toLowerCase());
+    console.log(ans.avatar);
+    chats = [...chats, { msg: ans.answer, answer: true, avatar: ans.avatar }];
     setChatList([...chats].reverse());
     return;
   };
@@ -79,7 +81,12 @@ export default function Chatbot() {
         keyExtractor={(_, index) => index.toString()}
         data={chatList}
         renderItem={({ item }) => (
-          <Message answer={item.answer} msg={item.msg} sentMsg={item.sentMsg} />
+          <Message
+            answer={item.answer}
+            msg={item.msg}
+            sentMsg={item.sentMsg}
+            avatar={item.avatar}
+          />
         )}
       />
       <View style={styles.typeMsgContainer}>

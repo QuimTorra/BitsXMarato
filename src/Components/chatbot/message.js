@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Avatar } from "react-native-paper";
 
-// 0 Happy
-// 1 Trist
-// 2 GuiñarUll
-// 3 LolFace
-// 4 Enfadat
+const faces = (v) => {
+  if (v === 2) return require("../../../assets/Happy-removebg-preview.png");
+  if (v === 0)
+    return require("../../../assets/Happysenseguiñar-removebg-preview.png");
+  if (v === 3) return require("../../../assets/Lolface-removebg-preview.png");
+  if (v === 1) return require("../../../assets/trist-removebg-preview.png");
+  if (v === 4) return require("../../../assets/Enfadat-removebg-preview.png");
+};
 
-export default function Message({ answer, sentMsg, msg }) {
+export default function Message({ answer, sentMsg, msg, avatar }) {
   return (
     <View>
       {answer && (
         <View style={styles.answerBox}>
-          <Avatar.Image
-            size={40}
-            source={require("../../../assets/Happysenseguiñar-removebg-preview.png")}
-          />
+          <Avatar.Image size={40} source={faces(avatar)} />
           <Text style={styles.answerText}>{msg}</Text>
         </View>
       )}
