@@ -4,12 +4,12 @@ import { StyleSheet, View, Text } from "react-native";
 import { TextInput, SegmentedButtons, Button } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
 
-export default function Formulari() {
+export default function Formulari(props) {
   let edat = 0;
   const [value, setValue] = React.useState("first");
 
   return (
-    <Animatable.View style={styles.form}>
+    <Animatable.View style={styles.form} animation="slideInDown">
       <TextInput
         label="Edat"
         keyboardType="numeric"
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderTopColor: "#DD453B",
     borderTopWidth: 2,
+    zIndex: -300,
   },
   container: {
     margin: 10,

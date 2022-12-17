@@ -9,10 +9,10 @@ const Info = ({ navigation }) => {
   let [icon, setIcon] = React.useState("chevron-down");
 
   let formulari = null;
-  if (form) formulari = <Formulari />;
+  if (form) formulari = <Formulari animation="slideInDown" />;
 
   let formwork = () => {
-    setIcon(form ? "chevron-down" : "chevron-up");
+    setIcon(form ? "chevron-down" : "check");
     setForm(!form);
   };
 
