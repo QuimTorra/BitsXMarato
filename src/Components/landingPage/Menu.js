@@ -2,17 +2,54 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 
-export default function Menu() {
+import * as Animatable from "react-native-animatable";
+
+export default function Menu({ navigation }) {
   return (
-    <View style={styles.struct}>
-      <Button icon="wechat" mode="elevated" style={styles.buttons}></Button>
-      <Button
-        icon="weight-lifter"
-        mode="elevated"
-        style={styles.buttons}
-      ></Button>
-      <Button icon="wechat" mode="elevated" style={styles.buttons}></Button>
-      <Button icon="wechat" mode="elevated" style={styles.buttons}></Button>
+    <View>
+      <Animatable.View animation="swing" duration={2000}>
+        <Button
+          icon="wechat"
+          mode="elevated"
+          textColor="#FFFFFF"
+          style={styles.buttons}
+          onPress={() => {
+            navigation.navigate("Chatbot");
+          }}
+        >
+          Chatbot
+        </Button>
+      </Animatable.View>
+      <Animatable.View animation="swing" duration={2000}>
+        <Button
+          icon="weight-lifter"
+          mode="elevated"
+          textColor="#FFFFFF"
+          style={styles.buttons}
+        >
+          Generador de Salut
+        </Button>
+      </Animatable.View>
+      <Animatable.View animation="swing" duration={2000}>
+        <Button
+          icon="fencing"
+          mode="elevated"
+          textColor="#FFFFFF"
+          style={styles.buttons}
+        >
+          Combatim la trombosi
+        </Button>
+      </Animatable.View>
+      <Animatable.View animation="swing" duration={2000}>
+        <Button
+          icon="newspaper-variant-multiple"
+          mode="elevated"
+          style={styles.buttons}
+          textColor="#FFFFFF"
+        >
+          Notícies
+        </Button>
+      </Animatable.View>
     </View>
   );
 }
@@ -23,9 +60,6 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: "#FF675D",
     alignSelf: "center",
-  },
-  struct: {
-    display: "flex",
-    justifyContent: "space-around",
+    marginVertical: 20,
   },
 });

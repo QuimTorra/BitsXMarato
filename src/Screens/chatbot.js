@@ -1,14 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-const chatbot = () => {
+export default function Chatbot() {
   return (
     <View>
       <Text>chatbot</Text>
     </View>
   );
-};
-
-export default chatbot;
+}
 
 const styles = StyleSheet.create({});
