@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Formulari from "../Components/Formulari";
+import Formulari from "../Components/info/Formulari";
 import { Appbar } from "react-native-paper";
 
 const Info = ({ navigation }) => {
@@ -15,6 +15,9 @@ const Info = ({ navigation }) => {
     setIcon(form ? "chevron-down" : "check");
     setForm(!form);
   };
+
+  let a = [];
+  a.sort();
 
   return (
     <>
