@@ -14,6 +14,39 @@ import { data } from "../Components/chatbot/data";
 
 let chats = [];
 
+const jaccard = (msg) => {
+  let maxSimilarity = 0;
+  let maxIndx = -1;
+
+  const msgWords = msg.split(" ");
+  const arrayWords = data.map((el) => el.question.split(" "));
+
+  for (let i = 0; i < arrayWords.length; i++) {
+    const intersection = arrayWords[i].filter((x) => msgWords.includes(x));
+    const union = arrayWords[i]
+      .concat(msgWords)
+      .filter((x, i, arr) => arr.indexOf(x) === i);
+    const similarity = intersection.length / union.length;
+
+    if (similarity == 1) {
+      return data[i];
+    }
+
+    if (similarity > maxSimilarity) {
+      maxSimilarity = similarity;
+      maxIndx = i;
+    }
+  }
+
+  if (maxSimilarity == 0) {
+    return {
+      question: "diablo papi",
+      answer: "No entenc el que em demanes. Torna-ho a intentar! :)",
+    };
+  }
+  return data[maxIndx];
+};
+
 export default function Chatbot() {
   const [msg, setMsg] = useState("");
   const [chatList, setChatList] = useState([]);
@@ -23,21 +56,8 @@ export default function Chatbot() {
   }, []);
 
   const getAnswer = (miss) => {
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].question.includes(miss.toLowerCase())) {
-        chats = [...chats, { msg: data[i].answer, answer: true }];
-        setChatList([...chats].reverse());
-        return;
-      }
-    }
-
-    chats = [
-      ...chats,
-      {
-        msg: "No sé a què et refereixes, necessites ajuda?",
-        answer: true,
-      },
-    ];
+    let ans = jaccard(miss.toLowerCase()).answer;
+    chats = [...chats, { msg: ans, answer: true }];
     setChatList([...chats].reverse());
     return;
   };
