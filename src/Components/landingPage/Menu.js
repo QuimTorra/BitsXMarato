@@ -26,6 +26,9 @@ export default function Menu({ navigation }) {
           mode="elevated"
           textColor="#FFFFFF"
           style={styles.buttons}
+          onPress={() => {
+            navigation.navigate("Info");
+          }}
         >
           Generador de Salut
         </Button>
@@ -46,6 +49,9 @@ export default function Menu({ navigation }) {
           mode="elevated"
           style={styles.buttons}
           textColor="#FFFFFF"
+          onPress={() => {
+            navigation.navigate("Noticies");
+          }}
         >
           Notícies
         </Button>

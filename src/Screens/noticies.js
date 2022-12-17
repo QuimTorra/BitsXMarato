@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const noticies = () => {
+const Noticies = () => {
   return (
     <View>
       <Text>noticies</Text>
@@ -9,6 +9,6 @@ const noticies = () => {
   );
 };
 
-export default noticies;
+export default Noticies;
 
 const styles = StyleSheet.create({});
