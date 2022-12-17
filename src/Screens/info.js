@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
-import React from "react";
+import * as React from "react";
+import { useRef } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Formulari from "../Components/info/Formulari";
 import { Appbar } from "react-native-paper";
@@ -8,8 +9,7 @@ const Info = ({ navigation }) => {
   let [form, setForm] = React.useState(false);
   let [icon, setIcon] = React.useState("chevron-down");
 
-  let formulari = null;
-  if (form) formulari = <Formulari animation="slideInDown" />;
+  const formref = useRef();
 
   let formwork = () => {
     setIcon(form ? "chevron-down" : "check");
@@ -34,7 +34,7 @@ const Info = ({ navigation }) => {
         <Appbar.Content title="Informació" />
         <Appbar.Action icon={icon} onPress={() => formwork()} />
       </Appbar.Header>
-      {formulari}
+      {form && <Formulari animation="slideInDown" ref={formref} />}
     </>
   );
 };
