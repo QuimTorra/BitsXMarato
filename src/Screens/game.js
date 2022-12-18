@@ -5,7 +5,6 @@ import LottieView from "lottie-react-native";
 
 import HeaderGame from "../Components/game/HeaderGame";
 import GameButtons from "../Components/game/GameButtons";
-import Medals from "../Components/game/Medals";
 
 export default function Game({ navigation }) {
   return (
@@ -24,7 +23,6 @@ export default function Game({ navigation }) {
       />
       <Animatable.View animation="fadeIn" duration={2000}>
         <GameButtons navigation={navigation} />
-        <Medals />
       </Animatable.View>
     </View>
   );

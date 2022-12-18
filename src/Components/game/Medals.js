@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { IconButton } from "react-native-paper";
 
-export default function Medals() {
-  const [gold, setGold] = useState(false);
-  const [silver, setSilver] = useState(false);
-  const [bronze, setBronze] = useState(false);
+export default function Medals({ one, two, three }) {
+  const [gold, setGold] = useState(one);
+  const [silver, setSilver] = useState(two);
+  const [bronze, setBronze] = useState(three);
 
   return (
     <View style={styles.struct}>
