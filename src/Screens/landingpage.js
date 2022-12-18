@@ -6,6 +6,7 @@ import {
   Image,
   TouchableWithoutFeedback,
   Linking,
+  TouchableOpacity,
 } from "react-native";
 import { Appbar, useTheme } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -17,7 +18,7 @@ export default function Landingpage({ navigation }) {
   const { bottom } = useSafeAreaInsets();
   const theme = useTheme();
   open = () => {
-    let url = "http://www.wikipedia.org";
+    let url = "https://activatt.com/donations/activatt-donacion-persona-fisica";
     Linking.openURL(url);
   };
 
@@ -26,11 +27,13 @@ export default function Landingpage({ navigation }) {
       <Header />
       <Menu navigation={navigation} />
       <Appbar style={[styles.bottom]} safeAreaInsets={{ bottom }}>
-        <Text style={{ color: "white" }}>En col·laboració amb</Text>
-        <Image
-          source={require("../../assets/logo-marato.png")}
-          style={{ width: 200, height: 40, marginHorizontal: 8 }}
-        />
+        <Text style={{ color: "white" }}>Col·labora fent un donatiu a</Text>
+        <TouchableOpacity onPress={() => open()}>
+          <Image
+            source={require("../../assets/logo-activat.png")}
+            style={{ width: 165, height: 50, marginHorizontal: 8 }}
+          />
+        </TouchableOpacity>
       </Appbar>
     </View>
   );
