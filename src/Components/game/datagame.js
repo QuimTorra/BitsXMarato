@@ -14,8 +14,8 @@ export const data1 = [
     correct: "1",
   },
   {
-    pregunta3: "Morir de trombosi...",
-    answer1: "És gairebé impossible",
+    pregunta3: "La trombosi...",
+    answer1: "Te un baix nivell de mortalitat",
     answer2: "No és una malaltia mortal",
     answer3: "Té un alt nivell de mortalitat",
     correct: "3",

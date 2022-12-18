@@ -17,6 +17,7 @@ export default function Level({ route, navigation }) {
   const [vuit, setVuit] = useState(false);
   const [nou, setNou] = useState(false);
   let [encerts, setEncerts] = useState(0);
+  const [myindex, SetMyIndex] = useState(0);
 
   const { data } = route.params;
 
@@ -35,6 +36,7 @@ export default function Level({ route, navigation }) {
               if ("1" === data[0].correct) {
                 setFirst(true);
                 setEncerts(encerts + 1);
+                SetMyIndex(1);
               }
             }}
           >
