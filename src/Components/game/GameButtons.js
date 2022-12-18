@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button } from "react-native-paper";
 
@@ -7,11 +7,15 @@ import { data1 } from "./datagame";
 import { data2 } from "./datagame";
 import { data3 } from "./datagame";
 
-var one = false;
-var two = false;
-var three = false;
+// var one = false;
+// var two = false;
+// var three = false;
 
 export default function GameButtons({ navigation }) {
+  const [one, setOne] = useState(false);
+  const [two, setTwo] = useState(false);
+  const [three, setThree] = useState(false);
+
   return (
     <View style={styles.struct}>
       <Button
@@ -20,8 +24,9 @@ export default function GameButtons({ navigation }) {
         textColor="#FFFFFF"
         style={styles.buttons}
         onPress={() => {
+          //one = true;
+          setOne(true);
           navigation.navigate("Level", { data: data1 });
-          one = true;
         }}
       >
         Mode Principiant
@@ -32,8 +37,9 @@ export default function GameButtons({ navigation }) {
         textColor="#FFFFFF"
         style={styles.buttons}
         onPress={() => {
+          //two = true;
+          setTwo(true);
           navigation.navigate("Level", { data: data2 });
-          two = true;
         }}
       >
         Mode Intermig
@@ -44,8 +50,9 @@ export default function GameButtons({ navigation }) {
         textColor="#FFFFFF"
         style={styles.buttons}
         onPress={() => {
+          //three = true;
+          setThree(true);
           navigation.navigate("Level", { data: data3 });
-          three = true;
         }}
       >
         Mode Difícil
