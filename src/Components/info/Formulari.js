@@ -1,45 +1,32 @@
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 import React from "react";
-import { AsyncStorage, StyleSheet, View, Text } from "react-native";
-import { TextInput, ToggleButton } from "react-native-paper";
+import { StyleSheet, View, Text } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TextInput, ToggleButton, IconButton } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
 
-export default function Formulari(props) {
-  const storeForm = async () => {
-    try {
-      await AsyncStorage.setItem(
-        "form",
-        JSON.stringify({ sexe: sexe, height: height, weight: weight })
-      );
-    } catch (err) {}
+export default function Formulari({ handleClick, ...props }) {
+  let weight = React.useRef(props.weight);
+  let height = React.useRef(props.height);
+  const [sexe, setSexe] = React.useState(props.sexe);
+
+  const completeForm = () => {
+    handleClick(weight.current, height.current, sexe);
   };
-
-  const retrieveForm = async () => {
-    try {
-      const value = await AsyncStorage.getItem("form");
-      if (!(value !== null)) {
-        return null;
-      }
-      return JSON.parse(value);
-    } catch (err) {}
-  };
-
-  const weight = 15;
-  const height = 15;
-  const [sexe, setSexe] = React.useState("home");
-
-  let val = retrieveForm();
-  if (val !== null) {
-    console.log(val);
-  }
 
   return (
-    <Animatable.View style={styles.form} animation="slideInDown">
+    <Animatable.View
+      style={[styles.form, props.style]}
+      animation={props.animation}
+      easing="ease-out"
+    >
       <View
         style={{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          marginHorizontal: 15,
+          marginVertical: 1,
           justifyContent: "space-evenly",
         }}
       >
@@ -48,18 +35,27 @@ export default function Formulari(props) {
           <ToggleButton icon="gender-female" value="dona" />
         </ToggleButton.Row>
         <TextInput
+          onChangeText={(val) => (height.current = val)}
           style={styles.input}
-          value={height}
-          placeholder="Alçada"
+          value={height.current}
+          label="Alçada"
           maxLength={3}
           keyboardType="numeric"
+          dense
         />
         <TextInput
+          onChangeText={(val) => (weight.current = val)}
           style={styles.input}
-          value={weight}
-          placeholder="Pes"
+          value={weight.current}
+          label="Pes"
           maxLength={3}
           keyboardType="numeric"
+          dense
+        />
+        <IconButton
+          icon="check"
+          mode="contained"
+          onPress={() => completeForm()}
         />
       </View>
     </Animatable.View>
@@ -76,7 +72,6 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 100,
-    height: 40,
     margin: 12,
     backgroundColor: "white",
   },
