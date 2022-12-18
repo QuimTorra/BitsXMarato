@@ -20,7 +20,7 @@ const LeftContent = (props) => (
   />
 );
 
-export default function Noticies() {
+export default function Noticies({ navigation }) {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
@@ -47,7 +47,13 @@ export default function Noticies() {
           <ScrollView horizontal>
             <View style={styles.wrapper}>
               <Animatable.View animation="zoomIn" duration={500}>
-                <Card elevation={5} style={styles.noticies}>
+                <Card
+                  elevation={5}
+                  style={styles.noticies}
+                  onPress={() => {
+                    navigation.navigate("Noticia", { noticiaId: 1 });
+                  }}
+                >
                   <Card.Title
                     title="BITSxLAMARATÓ"
                     subtitle="Hackathon per la salut cardiovascular"
@@ -58,15 +64,17 @@ export default function Noticies() {
                       uri: "https://www.bsc.es/sites/default/files/public/bscw2/content/news/horizontal-image/bitsxlamarato_1.jpg",
                     }}
                   />
-                  <Card.Content style={styles.contingut}>
-                    <Title>Card title</Title>
-                    <Paragraph>Card content</Paragraph>
-                  </Card.Content>
                 </Card>
               </Animatable.View>
 
               <Animatable.View animation="zoomIn" duration={500}>
-                <Card elevation={5} style={styles.noticies}>
+                <Card
+                  elevation={5}
+                  style={styles.noticies}
+                  onPress={() => {
+                    navigation.navigate("Noticia", { noticiaId: 2 });
+                  }}
+                >
                   <Card.Title
                     title="No és l'únic perill..."
                     subtitle="El risc de trombosi a ciutats en guerra"
@@ -77,15 +85,17 @@ export default function Noticies() {
                       uri: "https://trombo.info/wp-content/uploads/2022/11/london-blitz.jpg",
                     }}
                   />
-                  <Card.Content style={styles.contingut}>
-                    <Title>Card title</Title>
-                    <Paragraph>Card content</Paragraph>
-                  </Card.Content>
                 </Card>
               </Animatable.View>
 
               <Animatable.View animation="zoomIn" duration={500}>
-                <Card elevation={5} style={styles.noticies}>
+                <Card
+                  elevation={5}
+                  style={styles.noticies}
+                  onPress={() => {
+                    navigation.navigate("Noticia", { noticiaId: 3 });
+                  }}
+                >
                   <Card.Title
                     title="ETVs: Anyone, anywhere"
                     subtitle="Personalitats diverses que les han patit"
@@ -96,10 +106,6 @@ export default function Noticies() {
                       uri: "https://trombo.info/wp-content/uploads/2022/11/tromboinfo-nobelPrize-blood-clot-1.jpg",
                     }}
                   />
-                  <Card.Content style={styles.contingut}>
-                    <Title>Card title</Title>
-                    <Paragraph>Card content</Paragraph>
-                  </Card.Content>
                 </Card>
               </Animatable.View>
             </View>
@@ -115,15 +121,12 @@ const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
     flexDirection: "row",
-    marginHorizontal: 8,
+    marginHorizontal: 12,
   },
   noticies: {
     marginHorizontal: 8,
     width: 350,
     backgroundColor: "#FFFFFF",
     alignSelf: "center",
-  },
-  contingut: {
-    marginHorizontal: 8,
   },
 });

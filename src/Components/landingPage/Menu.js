@@ -9,7 +9,7 @@ export default function Menu({ navigation }) {
   return (
     <View>
       <View>
-        <Noticies />
+        <Noticies navigation={navigation} />
       </View>
       <Animatable.View animation="swing" duration={2000}>
         <Button
