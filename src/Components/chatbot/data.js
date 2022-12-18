@@ -1,6 +1,6 @@
 export const data = [
   {
-    question: "hola hols bones bona bon dia holaa",
+    question: "hola hols bones bona bon dia holaa ! !!",
     answer:
       "Benvingut amic! sabies què la trombosi és una malaltia que afecta a 1,5 milions de persones a tota Europa? Però no et preocupis, qualsevol dubte que hi tinguis et puc ajudar 😊",
     avatar: 0,
@@ -13,7 +13,7 @@ export const data = [
   },
   {
     question:
-      "més informació informacio info sobre referent a la trombosi trombòsi trombosis",
+      "més informació informacio info sobre referent trombosi trombòsi trombosis",
     answer:
       "La trombosi, és una enfermetat vascular que es caracteritza per la formació d'un coàgul de sang que obstrueix una vena o arteria." +
       " Un cop el coàgul s'ha format, pot ralentitzar o bloquejar el torrent sanguini o fins i tot deslpaçar-se fins a un òrgan" +
@@ -42,7 +42,7 @@ export const data = [
     avatar: 0,
   },
   {
-    question: "factors de risc vull veure factor riscos",
+    question: "factors risc vull veure factor riscos",
     answer:
       "N'hi han moltíssims, els principals són: sedentarisme, embaràs, factors genètics, fumar, mala alimentació, enfermetats inflamatòries, càncer entre d'altres." +
       "\nQuè hi voldries saber més?",
@@ -65,7 +65,7 @@ export const data = [
     avatar: 2,
   },
   {
-    question: "no mal malament",
+    question: "mal malament no agrada agradar",
     answer: "PERÒ QUE DIUS!!?? 😡",
     avatar: 4,
   },
