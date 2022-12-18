@@ -10,14 +10,15 @@ export default function Level({ route, navigation }) {
   const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
+  const [quatre, setQuatre] = useState(false);
+  const [cinc, setCinc] = useState(false);
+  const [sis, setSis] = useState(false);
+  const [set, setSet] = useState(false);
+  const [vuit, setVuit] = useState(false);
+  const [nou, setNou] = useState(false);
   let [encerts, setEncerts] = useState(0);
-  const [pag, setPag] = useState(0);
 
   const { data } = route.params;
-
-  useEffect(() => {
-    setPag(encerts);
-  }, [encerts]);
 
   return (
     <Swiper>
@@ -25,7 +26,7 @@ export default function Level({ route, navigation }) {
         <Pregunta data={data[0].pregunta1} />
         <Animatable.View
           animation={first || second || third ? "jello" : ""}
-          duration={2000}
+          duration={1500}
         >
           <Button
             style={styles.buttons}
@@ -81,9 +82,10 @@ export default function Level({ route, navigation }) {
         <Pregunta data={data[1].pregunta2} />
         <Button
           style={styles.buttons}
+          buttonColor={quatre ? "#75D31D" : "#FF675D"}
           onPress={() => {
             if ("1" === data[1].correct) {
-              setFirst(true);
+              setQuatre(true);
               setEncerts(encerts + 1);
             }
           }}
@@ -92,9 +94,10 @@ export default function Level({ route, navigation }) {
         </Button>
         <Button
           style={styles.buttons}
+          buttonColor={cinc ? "#75D31D" : "#FF675D"}
           onPress={() => {
             if ("2" === data[1].correct) {
-              setSecond(true);
+              setCinc(true);
               setEncerts(encerts + 1);
             }
           }}
@@ -103,9 +106,10 @@ export default function Level({ route, navigation }) {
         </Button>
         <Button
           style={styles.buttons}
+          buttonColor={sis ? "#75D31D" : "#FF675D"}
           onPress={() => {
-            if ("3" === data[0].correct) {
-              setThird(true);
+            if ("3" === data[1].correct) {
+              setSis(true);
               setEncerts(encerts + 1);
             }
           }}
@@ -127,13 +131,40 @@ export default function Level({ route, navigation }) {
       </View>
       <View>
         <Pregunta data={data[2].pregunta3} />
-        <Button style={styles.buttons}>
+        <Button
+          style={styles.buttons}
+          buttonColor={set ? "#75D31D" : "#FF675D"}
+          onPress={() => {
+            if ("1" === data[2].correct) {
+              setSet(true);
+              setEncerts(encerts + 1);
+            }
+          }}
+        >
           <Text style={styles.buttontxt}>{data[2].answer1}</Text>
         </Button>
-        <Button style={styles.buttons}>
+        <Button
+          style={styles.buttons}
+          buttonColor={vuit ? "#75D31D" : "#FF675D"}
+          onPress={() => {
+            if ("2" === data[2].correct) {
+              setVuit(true);
+              setEncerts(encerts + 1);
+            }
+          }}
+        >
           <Text style={styles.buttontxt}>{data[2].answer2}</Text>
         </Button>
-        <Button style={styles.buttons}>
+        <Button
+          style={styles.buttons}
+          buttonColor={nou ? "#75D31D" : "#FF675D"}
+          onPress={() => {
+            if ("3" === data[2].correct) {
+              setNou(true);
+              setEncerts(encerts + 1);
+            }
+          }}
+        >
           <Text style={styles.buttontxt}>{data[2].answer3}</Text>
         </Button>
         <ProgressBar
