@@ -1,12 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Image, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
 
 export default function Header() {
   return (
-    <View animation="bounceInDown" duration={1000} style={styles.banner}>
-      <Text style={styles.logotext}>AQUI ANIRA EL LOGO</Text>
-    </View>
+    <SafeAreaView style={styles.banner}>
+      <Image
+        source={require("../../../assets/LOGO.png")}
+        style={{ width: 210, height: 80, marginTop: 2 }}
+      />
+    </SafeAreaView>
   );
 }
 

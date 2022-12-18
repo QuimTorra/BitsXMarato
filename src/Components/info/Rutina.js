@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ScrollView } from "react-native";
 export default function Dieta(props) {
   return (
     <ScrollView>
-      {props.sexe == "home" && props.weight < 90 && (
+      {
         <View style={styles.dieta}>
           <Text style={styles.light}>4 Dies Setmanals</Text>
           <Text style={styles.bold}>Dilluns:</Text>
@@ -40,23 +40,7 @@ export default function Dieta(props) {
             15 minuts de cinta o bici estàtica després de cada entrenament
           </Text>
         </View>
-      )}
-      {props.sexe == "home" && props.weight >= 90 && (
-        <View style={styles.dieta}>
-          <Text style={styles.light}>Calories: ~2400</Text>
-          <Text style={styles.bold}>Esmorzar</Text>
-          <Text>Dues torrades de pa integral amb dos ous bullits.</Text>
-          <Text style={styles.bold}>Dinar:</Text>
-          <Text>Amanida d'alvocat i tonyina</Text>
-          <Text>Postre: Macedònia amb iogurt natural</Text>
-          <Text style={styles.bold}>Snack:</Text>
-          <Text>Batut de llima, vainilla i llet</Text>
-          <Text>Grapat d'anous</Text>
-          <Text style={styles.bold}>Sopar:</Text>
-          <Text>Entrepà de pa de sègol de pollastre, guacamole i enciam</Text>
-          <Text>Postre: Plàtan i nabius</Text>
-        </View>
-      )}
+      }
     </ScrollView>
   );
 }
@@ -67,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   bold: {
-    marginTop: 2,
+    marginTop: 8,
     fontWeight: "bold",
     fontSize: 15,
   },

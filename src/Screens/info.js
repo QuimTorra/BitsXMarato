@@ -35,7 +35,7 @@ const Info = ({ navigation }) => {
             navigation.goBack();
           }}
         />
-        <Appbar.Content title="Informació" />
+        <Appbar.Content title="Prevenció" />
         {/* <Appbar.Action icon={icon} onPress={() => formwork()} /> */}
       </Appbar.Header>
       <Formulari

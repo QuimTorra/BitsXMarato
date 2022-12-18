@@ -35,6 +35,39 @@ export default function Dieta(props) {
           <Text>Postre: Plàtan i nabius</Text>
         </View>
       )}
+      {props.sexe == "dona" && props.weight < 90 && (
+        <View style={styles.dieta}>
+          <Text style={styles.light}>Calories: ~2000</Text>
+          <Text style={styles.bold}>Esmorzar</Text>
+          <Text>Pankaces de platan, ou i avena</Text>
+          <Text>Torrada amb crema de formatge i fruits del bosc</Text>
+          <Text style={styles.bold}>Dinar:</Text>
+          <Text>Amanida d'alvocat i pollastre</Text>
+          <Text>Postre: Plàtan</Text>
+          <Text style={styles.bold}>Snack:</Text>
+          <Text>Hummus amb pastanaga</Text>
+          <Text style={styles.bold}>Sopar:</Text>
+          <Text>Amanida de verdures i tofu</Text>
+          <Text>Amanida mediterrània</Text>
+          <Text>Postre: una poma amb canyella</Text>
+        </View>
+      )}
+      {props.sexe == "dona" && props.weight >= 90 && (
+        <View style={styles.dieta}>
+          <Text style={styles.light}>Calories: ~1600</Text>
+          <Text style={styles.bold}>Esmorzar</Text>
+          <Text>
+            Torrada de pa de sègol amb alvocat i formatge baix en grassa
+          </Text>
+          <Text style={styles.bold}>Dinar:</Text>
+          <Text>Faixeta de pollastre, amanida i tomàquet</Text>
+          <Text>Postre: Plàtan</Text>
+          <Text style={styles.bold}>Snack:</Text>
+          <Text>Entrepà de mantega de cacauet</Text>
+          <Text style={styles.bold}>Sopar:</Text>
+          <Text>Salmó a la planxa i espinacs amb pinyons</Text>
+        </View>
+      )}
     </>
   );
 }
@@ -44,7 +77,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   bold: {
-    marginTop: 2,
+    marginTop: 8,
     fontWeight: "bold",
     fontSize: 15,
   },

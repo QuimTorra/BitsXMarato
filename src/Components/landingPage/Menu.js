@@ -13,7 +13,7 @@ export default function Menu({ navigation }) {
       </View>
       <Animatable.View animation="swing" duration={2000}>
         <Button
-          icon="wechat"
+          icon="chat"
           mode="elevated"
           textColor="#FFFFFF"
           style={styles.buttons}
@@ -34,7 +34,7 @@ export default function Menu({ navigation }) {
             navigation.navigate("Info");
           }}
         >
-          Generador de Salut
+          Prevenció
         </Button>
       </Animatable.View>
       <Animatable.View animation="swing" duration={2000}>
