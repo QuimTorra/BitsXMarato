@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     flexDirection: "column",
     justifyContent: "center",
+    paddingHorizontal: 15,
   },
   txt: {
     fontSize: 20,

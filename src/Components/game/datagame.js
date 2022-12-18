@@ -49,23 +49,22 @@ export const data2 = [
 export const data3 = [
   {
     pregunta1:
-      "En quina posició de causes de mort al mon ubicaries a la trombosi venosa?",
+      "En quina posició de causes de mort al món ubicaries a la trombosi venosa?",
     answer1: "Passades les cinquanta",
     answer2: "Primera posició",
     answer3: "Entre les vint primeres",
     correct: "2",
   },
   {
-    pregunta1:
-      "Quins d'aquests són factor d'entorns que afecten al risc de patir malalties tromboembòliques?",
+    pregunta2: "Quins d'aquests són factors d'entorns que augmenten el risc",
     answer1: "Cirugia general, Enguixament, Edat",
     answer2: "Tabaquisme, Picades d'alguns animals, Dieta inadequada",
     answer3: "Estrés, Sedentarisme, Ferides",
     correct: "1",
   },
   {
-    pregunta1:
-      "Després del tractament a la trombosi, fins quin percentatge dels pacients tornaràn a patir un event trombòtic",
+    pregunta3:
+      "Dins quin percentatge dels pacients tornaràn a patir un event trombòtic desprès d'haver-ne patit un",
     answer1: "Un 30%",
     answer2: "Un 50%",
     answer3: "Un 60%",

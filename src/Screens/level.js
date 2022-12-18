@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
-import Swiper from "react-native-swiper";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Button, ProgressBar } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
 
 import Pregunta from "../Components/game/Pregunta";
+import { back } from "react-native/Libraries/Animated/Easing";
 
 export default function Level({ route, navigation }) {
   const [first, setFirst] = useState(false);
@@ -19,10 +19,14 @@ export default function Level({ route, navigation }) {
   let [encerts, setEncerts] = useState(0);
   const [myindex, SetMyIndex] = useState(0);
 
+  useEffect(() => {
+    if (encerts > 3) setEncerts(3);
+  }, [encerts]);
+
   const { data } = route.params;
 
   return (
-    <Swiper>
+    <ScrollView horizontal>
       <View>
         <Pregunta data={data[0].pregunta1} />
         <Animatable.View
@@ -82,42 +86,47 @@ export default function Level({ route, navigation }) {
       </View>
       <View>
         <Pregunta data={data[1].pregunta2} />
-        <Button
-          style={styles.buttons}
-          buttonColor={quatre ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("1" === data[1].correct) {
-              setQuatre(true);
-              setEncerts(encerts + 1);
-            }
-          }}
+        <Animatable.View
+          animation={quatre || cinc || sis ? "jello" : ""}
+          duration={1500}
         >
-          <Text style={styles.buttontxt}>{data[1].answer1}</Text>
-        </Button>
-        <Button
-          style={styles.buttons}
-          buttonColor={cinc ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("2" === data[1].correct) {
-              setCinc(true);
-              setEncerts(encerts + 1);
-            }
-          }}
-        >
-          <Text style={styles.buttontxt}>{data[1].answer2}</Text>
-        </Button>
-        <Button
-          style={styles.buttons}
-          buttonColor={sis ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("3" === data[1].correct) {
-              setSis(true);
-              setEncerts(encerts + 1);
-            }
-          }}
-        >
-          <Text style={styles.buttontxt}>{data[1].answer3}</Text>
-        </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={quatre ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("1" === data[1].correct) {
+                setQuatre(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[1].answer1}</Text>
+          </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={cinc ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("2" === data[1].correct) {
+                setCinc(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[1].answer2}</Text>
+          </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={sis ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("3" === data[1].correct) {
+                setSis(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[1].answer3}</Text>
+          </Button>
+        </Animatable.View>
         <ProgressBar
           progress={0.32}
           color="#FF675D"
@@ -133,42 +142,47 @@ export default function Level({ route, navigation }) {
       </View>
       <View>
         <Pregunta data={data[2].pregunta3} />
-        <Button
-          style={styles.buttons}
-          buttonColor={set ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("1" === data[2].correct) {
-              setSet(true);
-              setEncerts(encerts + 1);
-            }
-          }}
+        <Animatable.View
+          animation={set || vuit || nou ? "jello" : ""}
+          duration={1500}
         >
-          <Text style={styles.buttontxt}>{data[2].answer1}</Text>
-        </Button>
-        <Button
-          style={styles.buttons}
-          buttonColor={vuit ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("2" === data[2].correct) {
-              setVuit(true);
-              setEncerts(encerts + 1);
-            }
-          }}
-        >
-          <Text style={styles.buttontxt}>{data[2].answer2}</Text>
-        </Button>
-        <Button
-          style={styles.buttons}
-          buttonColor={nou ? "#75D31D" : "#FF675D"}
-          onPress={() => {
-            if ("3" === data[2].correct) {
-              setNou(true);
-              setEncerts(encerts + 1);
-            }
-          }}
-        >
-          <Text style={styles.buttontxt}>{data[2].answer3}</Text>
-        </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={set ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("1" === data[2].correct) {
+                setSet(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[2].answer1}</Text>
+          </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={vuit ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("2" === data[2].correct) {
+                setVuit(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[2].answer2}</Text>
+          </Button>
+          <Button
+            style={styles.buttons}
+            buttonColor={nou ? "#75D31D" : "#FF675D"}
+            onPress={() => {
+              if ("3" === data[2].correct) {
+                setNou(true);
+                setEncerts(encerts + 1);
+              }
+            }}
+          >
+            <Text style={styles.buttontxt}>{data[2].answer3}</Text>
+          </Button>
+        </Animatable.View>
         <ProgressBar
           progress={1}
           color="#FF675D"
@@ -182,7 +196,14 @@ export default function Level({ route, navigation }) {
         />
         <Text style={styles.encerts}>Encerts: {encerts}/3</Text>
       </View>
-    </Swiper>
+      <Button
+        style={styles.buttons2}
+        buttonColor={"#FF675D"}
+        onPress={() => navigation.goBack()}
+      >
+        JA HE ACABAT!
+      </Button>
+    </ScrollView>
   );
 }
 
@@ -193,6 +214,14 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     flexDirection: "column",
     justifyContent: "center",
+  },
+  buttons2: {
+    width: 400,
+    height: 70,
+    marginVertical: 20,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignSelf: "center",
   },
   buttontxt: {
     fontSize: 15,

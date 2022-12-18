@@ -7,10 +7,6 @@ import { data1 } from "./datagame";
 import { data2 } from "./datagame";
 import { data3 } from "./datagame";
 
-// var one = false;
-// var two = false;
-// var three = false;
-
 export default function GameButtons({ navigation }) {
   const [one, setOne] = useState(false);
   const [two, setTwo] = useState(false);
