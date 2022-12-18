@@ -10,8 +10,18 @@ export default function HeaderGame({ navigation }) {
           onPress={() => {
             navigation.goBack();
           }}
+          style={{ alignSelf: "flex-start" }}
         />
-        <Appbar.Content title="Combatim la trombosi!" />
+        <Appbar.Content
+          title={"Combatim contra la trombosi!"}
+          color={"#FFFFFF"}
+          titleStyle={{ fontSize: 25 }}
+        />
+        <Appbar.Content
+          title={"Veiem de lo que ets capaç"}
+          color={"#FFFFFF"}
+          titleStyle={{ fontSize: 15 }}
+        />
       </Appbar.Header>
     </View>
   );
@@ -22,5 +32,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF675D",
     zIndex: 1,
     postion: "absolute",
+    height: 120,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
   },
 });

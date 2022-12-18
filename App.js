@@ -7,6 +7,7 @@ import Landingpage from "./src/Screens/landingpage.js";
 import Chatbot from "./src/Screens/chatbot.js";
 import Info from "./src/Screens/info.js";
 import Game from "./src/Screens/game.js";
+import Level from "./src/Screens/level.js";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Chatbot" component={Chatbot} />
         <Stack.Screen name="Info" component={Info} />
         <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="Level" component={Level} />
       </Stack.Navigator>
     </NavigationContainer>
   );
