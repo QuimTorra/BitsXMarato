@@ -8,7 +8,9 @@ import Chatbot from "./src/Screens/chatbot.js";
 import Info from "./src/Screens/info.js";
 import Game from "./src/Screens/game.js";
 import Level from "./src/Screens/level.js";
-import Noticia from "./src/Screens/noticia.js";
+import Noticia0 from "./src/Screens/noticia0.js";
+import Noticia1 from "./src/Screens/noticia1.js";
+import Noticia2 from "./src/Screens/noticia2.js";
 
 const Stack = createStackNavigator();
 
@@ -26,7 +28,9 @@ export default function App() {
         <Stack.Screen name="Info" component={Info} />
         <Stack.Screen name="Game" component={Game} />
         <Stack.Screen name="Level" component={Level} />
-        <Stack.Screen name="Noticia" component={Noticia} />
+        <Stack.Screen name="Noticia0" component={Noticia0} />
+        <Stack.Screen name="Noticia1" component={Noticia1} />
+        <Stack.Screen name="Noticia2" component={Noticia2} />
       </Stack.Navigator>
     </NavigationContainer>
   );

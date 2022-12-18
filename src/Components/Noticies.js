@@ -51,7 +51,7 @@ export default function Noticies({ navigation }) {
                   elevation={5}
                   style={styles.noticies}
                   onPress={() => {
-                    navigation.navigate("Noticia", { noticiaId: 1 });
+                    navigation.navigate("Noticia0");
                   }}
                 >
                   <Card.Title
@@ -72,7 +72,7 @@ export default function Noticies({ navigation }) {
                   elevation={5}
                   style={styles.noticies}
                   onPress={() => {
-                    navigation.navigate("Noticia", { noticiaId: 2 });
+                    navigation.navigate("Noticia1");
                   }}
                 >
                   <Card.Title
@@ -93,7 +93,7 @@ export default function Noticies({ navigation }) {
                   elevation={5}
                   style={styles.noticies}
                   onPress={() => {
-                    navigation.navigate("Noticia", { noticiaId: 3 });
+                    navigation.navigate("Noticia2");
                   }}
                 >
                   <Card.Title
