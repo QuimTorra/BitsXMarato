@@ -17,8 +17,6 @@ Finalment, amb l'objectiu d'assegurar que l'usuari ha pres consciència de la im
 ## Com s'ha fet?
 Hem generat l'aplicació utilitzant JavaScript i amb el marc React-Native.
 
-Podeu donar una ullada a l'esquelet i al codi al repositori del projecte: link
-
 ## Reptes enfrontats
 Un cop versats en la programació ens hem trobat en el fet que tots els integrants teníem moltes idees i propostes, però carregàvem amb el pes de tenir relativament poques hores per a portar-les a terme de manera adequada. Hem hagut de prioritzar, donar pes i repartir les tasques acordament per poder arribar a tot, i presentar aquesta primera versió de la nostra app trombon't.
 
